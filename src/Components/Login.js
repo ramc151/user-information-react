@@ -10,7 +10,7 @@ const Login = () => {
         'password' : ""
     })
     const [arr, setArr] = useState([])
-    const [data, setData] = useState(() => {
+    const [data] = useState(() => {
         let localdata = localStorage.getItem("userdata");
         if(localdata == null){
             return []
@@ -25,7 +25,7 @@ const Login = () => {
     const formSubmit = (event) => {
         event.preventDefault();
         let newarr = data.filter((items,index) => {
-            return ((user.name == items.name || user.name == items.email) && user.password == items.password)
+            return ((user.name === items.name || user.name === items.email) && user.password === items.password)
         })
         setArr(newarr)
     }

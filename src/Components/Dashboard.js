@@ -10,7 +10,7 @@ const Dashboard = () => {
         let { name, value } = event.target;
         setUser({ ...user, [name]: value })
     }
-    const [data, setData] = useState(() => {
+    const [data] = useState(() => {
         let localdata = localStorage.getItem('userlogin');
         if (localdata == null) {
             return [];
@@ -20,7 +20,7 @@ const Dashboard = () => {
     })
     const edituser = (id) => {
         let newarr = data.filter((_, index) => {
-            return id == index;
+            return id === index;
         })
         setUser({
             'name': newarr[0].name,
