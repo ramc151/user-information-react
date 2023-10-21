@@ -35,8 +35,8 @@ const Login = () => {
             navigate('/dashboard')
         }else{
             navigate('/login')
-            // alert("Invalid")
         }
+        // eslint-disable-next-line
     },[arr])
   return (
     <><Navbar/>
