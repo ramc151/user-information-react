@@ -33,6 +33,7 @@ const Login = () => {
         if(arr.length > 0){
             localStorage.setItem("userlogin", JSON.stringify(arr))
             navigate('/dashboard')
+            alert("login success")
         }else{
             navigate('/login')
         }
