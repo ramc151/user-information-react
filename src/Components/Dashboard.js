@@ -4,12 +4,14 @@ import { useState } from 'react'
 import Navbardash from './Navbardash';
 
 const Dashboard = () => {
-    const [user, setUser] = useState({ 'name': "", 'email': "", 'password': "" })
+    const [user, setUser] = useState({ name: "", email: "", password: "" })
     const [arr, setArr] = useState([]);
+
     const inputHandler = (event) => {
         let { name, value } = event.target;
         setUser({ ...user, [name]: value })
     }
+
     const [data] = useState(() => {
         let localdata = localStorage.getItem('userlogin');
         if (localdata == null) {
@@ -18,16 +20,18 @@ const Dashboard = () => {
             return JSON.parse(localdata)
         }
     })
+
     const edituser = (id) => {
         let newarr = data.filter((_, index) => {
             return id === index;
         })
         setUser({
-            'name': newarr[0].name,
-            'email': newarr[0].email,
-            'password': newarr[0].password,
+            name: newarr[0].name,
+            email: newarr[0].email,
+            password: newarr[0].password,
         })
     }
+
     const updateuser = () => {
         setArr([...arr, user])
         window.location = '/dashboard'
@@ -37,6 +41,7 @@ const Dashboard = () => {
             localStorage.setItem("userlogin", JSON.stringify(arr))
         }
     }, [arr])
+
     return (
         <>
             <Navbardash />
@@ -83,8 +88,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+            </div></>
     )
 }
 
